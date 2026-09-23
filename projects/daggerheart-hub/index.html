@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daggerheart Homebrew Hub — Connor Hopkins</title>
+<meta name="description" content="A local-first Electron desktop app for authoring and running homebrew for the Daggerheart TTRPG — content builders, a Session Builder, and book-style stat sheets you can export as images.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/base.css">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:,">
+<meta property="og:title" content="Daggerheart Homebrew Hub">
+<meta property="og:description" content="A local-first desktop app for authoring and running Daggerheart homebrew — with a Windows installer you can download today.">
+<meta property="og:image" content="https://conhop30.github.io/projects/daggerheart-hub/assets/shot-hub.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="../../" class="back-link">← Connor Hopkins</a>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <p class="eyebrow">Personal Project</p>
+  <h1>Daggerheart Homebrew Hub</h1>
+  <p class="hero-lede">
+    A local-first desktop app for authoring and running homebrew for the
+    Daggerheart tabletop RPG. It builds every kind of rulebook content
+    (classes, domains, adversaries, equipment, and more), then lets a Game
+    Master run a live session on top of it: Fear tracking, live adversary
+    stat tracking, a standing party roster, and dice-backed loot rolls.
+  </p>
+  <div class="hero-badges">
+    <span class="badge">Electron</span>
+    <span class="badge">React + TypeScript</span>
+    <span class="badge">Vite</span>
+    <span class="badge">Vitest</span>
+    <span class="badge">Playwright</span>
+    <span class="badge">electron-builder</span>
+  </div>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="https://github.com/conhop30/daggerheart-hub/releases/download/v1.0.0/Daggerheart-Homebrew-Hub-Setup-1.0.0.exe">Download for Windows →</a>
+    <a class="btn btn-ghost" href="https://github.com/conhop30/daggerheart-hub" target="_blank" rel="noopener">View source on GitHub</a>
+  </div>
+</header>
+
+<section class="shots wrap">
+  <figure class="shot shot-wide">
+    <img src="assets/shot-hub.png" alt="The Adversaries gallery: a grid of compact stat tiles beside a spotlight column showing one full stat sheet, with a Recently Viewed list pinned above it">
+    <figcaption>Browse: a tile gallery with a spotlight column and recently-viewed history</figcaption>
+  </figure>
+  <div class="shot-row">
+    <figure class="shot">
+      <img src="assets/shot-expanded.png" alt="Expanded mode: several full parchment stat sheets side by side">
+      <figcaption>Expand: every stat block at full size</figcaption>
+    </figure>
+    <figure class="shot shot-tall">
+      <img src="assets/shot-sheet.png" alt="A book-style adversary stat sheet with Passive, Action, Reaction, Evolution, and a custom Lair Actions section">
+      <figcaption>A custom section, no code change</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="block wrap">
+  <h2>What it does</h2>
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>Author every content type</h3>
+      <p>Classes, Subclasses, Domains and Domain Cards, Adversaries, Environments, Weapons, Armor, Loot, Ancestries, Communities, and more — each with real validation (a Secondary weapon can't be Two-Handed; a Class's two Domains must differ).</p>
+    </div>
+    <div class="feature">
+      <h3>Book-style stat sheets</h3>
+      <p>Adversaries and Environments render as a parchment stat block modeled on the printed layout, and export to a PNG in one click. Browse them as a dense gallery, a spotlight view, or full-size sheets.</p>
+    </div>
+    <div class="feature">
+      <h3>Run a live session</h3>
+      <p>Campaigns with a standing party, a 0–12 Fear track, adversaries pulled in as independent live copies with HP/Stress tracked as marked boxes, notes, and a loot roller that reproduces the rulebook's rarity dice mechanic.</p>
+    </div>
+    <div class="feature">
+      <h3>Built to be extended</h3>
+      <p>Feature sections (Passives, Actions, Reactions, Evolutions…) are data-driven: a new rules element is one line in a registry, and a homebrew system can add its own sections straight from the editor.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap">
+  <h2>How it's built</h2>
+  <div class="stack-grid">
+    <div class="stack-row">
+      <span class="label">Architecture</span>
+      <span class="value"><strong>Local-first, no backend.</strong> The app began as Electron plus a Spring Boot/SQLite service and was deliberately re-architected: a single JSON file owned by Electron's main process is the whole database, exposed to the UI over a narrow <code>contextBridge</code> IPC API. Chosen so the same data layer could later back a React Native client, which can't embed a JVM.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">UI</span>
+      <span class="value"><strong>React 18 + TypeScript</strong> with types enforced from the store's shapes through the IPC bridge to the components. Plain CSS with design tokens; light/dark theming is two value sets under the same variable names.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">Data layer</span>
+      <span class="value">A <code>makeCollection()</code> factory gives every content type idempotent-by-name create, PATCH-semantics update, and per-type validation. Where the factory doesn't fit (a session can pull the same adversary in twice), the collection is hand-written rather than forced through it.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">Testing</span>
+      <span class="value"><strong>79 Vitest unit tests</strong> on the store's CRUD and validation rules, and <strong>24 Playwright end-to-end tests</strong> that drive the real Electron app against throwaway data directories, so nothing ever touches a user's real data.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">Packaging</span>
+      <span class="value"><strong>electron-builder</strong> produces a real NSIS installer. Shipping it meant debugging a blank window in the packaged build (absolute asset paths under <code>file://</code>) and an OneDrive sync lock that broke the build inside a synced folder.</span>
+    </div>
+  </div>
+</section>
+
+<section class="download-cta wrap">
+  <h2>Try it</h2>
+  <p>Windows installer, no account or internet needed. Your data is one JSON file on your machine.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="https://github.com/conhop30/daggerheart-hub/releases/download/v1.0.0/Daggerheart-Homebrew-Hub-Setup-1.0.0.exe">Download for Windows →</a>
+    <a class="btn btn-ghost" href="https://github.com/conhop30/daggerheart-hub#readme" target="_blank" rel="noopener">Read the full write-up</a>
+  </div>
+  <p class="fine-print">The installer isn't code-signed, so Windows SmartScreen may warn you: choose "More info", then "Run anyway". It ships without any published book content. Unofficial fan project; Daggerheart is a trademark of Darrington Press.</p>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="https://github.com/conhop30/daggerheart-hub" target="_blank" rel="noopener">github.com/conhop30/daggerheart-hub</a>
+  </div>
+</footer>
+
+</body>
+</html>
