@@ -108,6 +108,25 @@ main {
   font-size: 15px;
 }
 
+.platforms {
+  display: flex;
+  gap: 14px;
+  margin-top: 2px;
+}
+
+.platform {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.platform svg {
+  width: 16px;
+  height: 16px;
+}
+
 .project-card-cta {
   margin-top: 4px;
   font-size: 14px;

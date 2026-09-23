@@ -128,6 +128,32 @@ body {
   transform: scale(0.98);
 }
 
+.btn-os {
+  padding: 11px 20px 11px 16px;
+  gap: 12px;
+}
+
+.os-icon {
+  width: 26px;
+  height: 26px;
+  flex: none;
+}
+
+.btn-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.25;
+}
+
+.btn-sub {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  opacity: 0.75;
+}
+
 .btn-primary {
   background: var(--red);
   color: var(--ink);

@@ -17,6 +17,16 @@
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="icon-windows" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M2 3.6 10.4 2.4v8.2H2zM11.6 2.2 22 .7v9.9H11.6zM2 11.8h8.4v8.2L2 18.8zM11.6 11.8H22v9.9L11.6 20.2z"/>
+  </symbol>
+  <symbol id="icon-android" viewBox="0 0 24 24">
+    <path fill="currentColor" fill-rule="evenodd" d="M3.8 19a8.2 8.2 0 0 1 16.4 0zM8 15.2a1.1 1.1 0 1 0 2.2 0 1.1 1.1 0 0 0-2.2 0zm5.8 0a1.1 1.1 0 1 0 2.2 0 1.1 1.1 0 0 0-2.2 0z"/>
+    <path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" d="M7.7 12.6 6.1 9.6M16.3 12.6 17.9 9.6"/>
+  </symbol>
+</svg>
+
 <nav class="site-nav">
   <div class="wrap">
     <a href="../../" class="back-link">← Connor Hopkins</a>
@@ -40,7 +50,14 @@
     <span class="badge">EAS Build</span>
   </div>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="https://github.com/conhop30/VALORANT-design-hub/releases/latest">Download for Android →</a>
+    <a class="btn btn-primary btn-os" href="https://github.com/conhop30/VALORANT-design-hub/releases/latest/download/VALORANT-Design-Hub-Setup.exe">
+      <svg class="os-icon" aria-hidden="true"><use href="#icon-windows"/></svg>
+      <span class="btn-text"><span class="btn-main">Download for Windows</span><span class="btn-sub">Windows 10/11 · installer (.exe)</span></span>
+    </a>
+    <a class="btn btn-primary btn-os" href="https://github.com/conhop30/VALORANT-design-hub/releases/latest/download/VALORANT-Design-Hub.apk">
+      <svg class="os-icon" aria-hidden="true"><use href="#icon-android"/></svg>
+      <span class="btn-text"><span class="btn-main">Download for Android</span><span class="btn-sub">Android phone/tablet · APK</span></span>
+    </a>
     <a class="btn btn-ghost" href="https://github.com/conhop30/VALORANT-design-hub" target="_blank" rel="noopener">View source on GitHub</a>
   </div>
 </header>
@@ -96,7 +113,7 @@
     </div>
     <div class="stack-row">
       <span class="label">Desktop</span>
-      <span class="value"><strong>Electron</strong>, wrapping the same web export in a native window to produce a real <code>.exe</code>/NSIS installer.</span>
+      <span class="value"><strong>Electron</strong>, wrapping the same web export in a native window to produce a real <code>.exe</code>/NSIS installer, published as a GitHub Release.</span>
     </div>
     <div class="stack-row">
       <span class="label">Mobile builds</span>
@@ -111,12 +128,19 @@
 
 <section class="download-cta wrap">
   <h2>Try it</h2>
-  <p>Installable on Android today. Windows and web builds run from source — see the README for the full setup.</p>
+  <p>Installers for Windows and Android. The web version runs from source — see the README for setup.</p>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="https://github.com/conhop30/VALORANT-design-hub/releases/latest">Download for Android →</a>
+    <a class="btn btn-primary btn-os" href="https://github.com/conhop30/VALORANT-design-hub/releases/latest/download/VALORANT-Design-Hub-Setup.exe">
+      <svg class="os-icon" aria-hidden="true"><use href="#icon-windows"/></svg>
+      <span class="btn-text"><span class="btn-main">Download for Windows</span><span class="btn-sub">Windows 10/11 · installer (.exe)</span></span>
+    </a>
+    <a class="btn btn-primary btn-os" href="https://github.com/conhop30/VALORANT-design-hub/releases/latest/download/VALORANT-Design-Hub.apk">
+      <svg class="os-icon" aria-hidden="true"><use href="#icon-android"/></svg>
+      <span class="btn-text"><span class="btn-main">Download for Android</span><span class="btn-sub">Android phone/tablet · APK</span></span>
+    </a>
     <a class="btn btn-ghost" href="https://github.com/conhop30/VALORANT-design-hub#readme" target="_blank" rel="noopener">Read the full write-up</a>
   </div>
-  <p class="fine-print">Android will warn about installing from outside the Play Store — expected for a direct download, not a sign of anything wrong.</p>
+  <p class="fine-print">Neither download is code-signed, so both systems will warn you: Windows SmartScreen says "Windows protected your PC" (choose More info → Run anyway), and Android asks to allow installs from outside the Play Store. That's expected for a personal project, not a sign of anything wrong.</p>
 </section>
 
 <footer class="site-footer">

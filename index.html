@@ -11,6 +11,16 @@
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="icon-windows" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M2 3.6 10.4 2.4v8.2H2zM11.6 2.2 22 .7v9.9H11.6zM2 11.8h8.4v8.2L2 18.8zM11.6 11.8H22v9.9L11.6 20.2z"/>
+  </symbol>
+  <symbol id="icon-android" viewBox="0 0 24 24">
+    <path fill="currentColor" fill-rule="evenodd" d="M3.8 19a8.2 8.2 0 0 1 16.4 0zM8 15.2a1.1 1.1 0 1 0 2.2 0 1.1 1.1 0 0 0-2.2 0zm5.8 0a1.1 1.1 0 1 0 2.2 0 1.1 1.1 0 0 0-2.2 0z"/>
+    <path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" d="M7.7 12.6 6.1 9.6M16.3 12.6 17.9 9.6"/>
+  </symbol>
+</svg>
+
 <header class="home-header">
   <p class="eyebrow">Engineering Portfolio</p>
   <h1>Connor Hopkins</h1>
@@ -49,6 +59,10 @@
       <div class="project-card-body">
         <h3>VALORANT Design Hub</h3>
         <p>A cross-platform app — Android, Windows, and web from one codebase — for designing and cataloguing custom VALORANT agents and weapons.</p>
+        <span class="platforms">
+          <span class="platform"><svg aria-hidden="true"><use href="#icon-windows"/></svg>Windows</span>
+          <span class="platform"><svg aria-hidden="true"><use href="#icon-android"/></svg>Android</span>
+        </span>
         <span class="project-card-cta">View project →</span>
       </div>
     </a>
