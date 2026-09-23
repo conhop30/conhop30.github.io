@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summoner — Connor Hopkins</title>
+<meta name="description" content="A local-first Electron desktop app for designing League of Legends-style champions: base stats, modular ability kits, item builds, and a showcase page, with a Windows installer you can download today.">
+<link rel="stylesheet" href="../../css/base.css">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:,">
+<meta property="og:title" content="Summoner">
+<meta property="og:description" content="A local-first desktop app for designing League of Legends-style champions — modular ability kits, live Data Dragon sync, and a downloadable Windows installer.">
+<meta property="og:image" content="https://conhop30.github.io/projects/summoner/assets/shot-view.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="../../" class="back-link">← Connor Hopkins</a>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <p class="eyebrow">Personal Project</p>
+  <h1>Summoner</h1>
+  <p class="hero-lede">
+    A champion design tool with the feel of Riot's own client. Write a
+    champion's identity and lore, tune per-level base stats, build a
+    five-slot ability kit with per-rank scaling and modular blocks, theorycraft
+    item builds against live patch data, then present the result on a showcase
+    page. Everything is stored locally — no server, no account.
+  </p>
+  <div class="hero-badges">
+    <span class="badge">Electron</span>
+    <span class="badge">React + TypeScript</span>
+    <span class="badge">Vite</span>
+    <span class="badge">SQLite</span>
+    <span class="badge">Zustand</span>
+    <span class="badge">Data Dragon</span>
+  </div>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="https://github.com/conhop30/summoner/releases/download/v0.1.0/Summoner-Windows-0.1.0-Setup.exe">Download for Windows →</a>
+    <a class="btn btn-ghost" href="https://github.com/conhop30/summoner" target="_blank" rel="noopener">View source on GitHub</a>
+  </div>
+</header>
+
+<section class="shots wrap">
+  <div class="shot-grid">
+    <figure class="shot"><img src="assets/shot-gallery.png" alt="The champion gallery with three champion tiles"><figcaption>Gallery</figcaption></figure>
+    <figure class="shot"><img src="assets/shot-view.png" alt="The showcase page for Akali with an icon row and ability spotlight"><figcaption>Showcase page</figcaption></figure>
+    <figure class="shot"><img src="assets/shot-blocks.png" alt="The ability editor showing an alternate-form block under Gnar's Q"><figcaption>Modular ability blocks</figcaption></figure>
+    <figure class="shot"><img src="assets/shot-stats.png" alt="The suggested-stats pop-up offering class averages and real-champion presets"><figcaption>Suggested stats from Data Dragon</figcaption></figure>
+  </div>
+  <p class="shots-note">Screenshots show Aatrox, Gnar, and Akali, loaded from Riot's public Data Dragon feed as sample data.</p>
+</section>
+
+<section class="block wrap">
+  <h2>What it does</h2>
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>Identity, lore &amp; stats</h3>
+      <p>Name, title, lore, classes, lane, resource type, splash art with a drag-to-reposition focal point, and full base and per-level growth stats.</p>
+    </div>
+    <div class="feature">
+      <h3>Modular ability kits</h3>
+      <p>Passive plus Q/W/E/R, each with cooldown, cost, and effects that scale per rank (including AP/AD ratios), plus custom icons. Any key can take "+" blocks: extra passives, alternate forms like Gnar's Mega spells, or condition-unlocked recasts like Akali's.</p>
+    </div>
+    <div class="feature">
+      <h3>Live Data Dragon sync</h3>
+      <p>The full item catalog and champion roster sync from Riot's public feed, with no API key. A hover pop-up suggests base stats from per-class averages or a real champion preset.</p>
+    </div>
+    <div class="feature">
+      <h3>Build theorycrafting</h3>
+      <p>Up to four named item builds per champion, with stacking rules read from the data and a real-time stat comparison against the champion's base stats.</p>
+    </div>
+    <div class="feature">
+      <h3>Showcase &amp; poster</h3>
+      <p>A splash-art-forward view page with an icon-row and spotlight ability display, plus a one-click downloadable poster of the whole kit.</p>
+    </div>
+    <div class="feature">
+      <h3>Fully local</h3>
+      <p>One SQLite file on your machine. Export and import your library as JSON to move it between computers.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap">
+  <h2>How it's built</h2>
+  <div class="stack-grid">
+    <div class="stack-row">
+      <span class="label">Shell</span>
+      <span class="value"><strong>Electron</strong>, with <code>contextIsolation</code> on and a narrow <code>preload</code> bridge as the only path between the renderer and the main process.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">UI</span>
+      <span class="value"><strong>React 18 + TypeScript</strong>, styled with a semantic design-token layer for dark and light themes. Domain types and logic are plain TypeScript, imported by both the main process and the renderer.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">Persistence</span>
+      <span class="value"><strong>SQLite via better-sqlite3</strong> with additive migrations, compiled against Electron's Node ABI.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">Data source</span>
+      <span class="value"><strong>Riot Data Dragon</strong>, fetched in the main process and cached into SQLite with version tracking, so the app works offline after the first sync.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">Routing</span>
+      <span class="value"><strong>React Router with a hash router</strong>, because the packaged app loads from <code>file://</code> where path-based routes 404.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">Poster export</span>
+      <span class="value"><strong>Canvas 2D</strong> composites splash art, lore, and every ability, measuring text first so the image is sized to fit the whole kit.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">Packaging</span>
+      <span class="value"><strong>electron-builder</strong> producing an NSIS Windows installer, published as a GitHub Release.</span>
+    </div>
+  </div>
+</section>
+
+<section class="download-cta wrap">
+  <h2>Try it</h2>
+  <p>Windows 10/11 installer. No account, and no internet needed except for the optional Data Dragon sync.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="https://github.com/conhop30/summoner/releases/download/v0.1.0/Summoner-Windows-0.1.0-Setup.exe">Download for Windows →</a>
+    <a class="btn btn-ghost" href="https://github.com/conhop30/summoner#readme" target="_blank" rel="noopener">Read the full write-up</a>
+  </div>
+  <p class="fine-print">The installer isn't code-signed, so Windows SmartScreen may warn you: choose "More info", then "Run anyway". Summoner is an unofficial fan project and isn't endorsed by Riot Games. League of Legends and its champion names and art are trademarks and property of Riot Games, Inc.</p>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="https://github.com/conhop30/summoner" target="_blank" rel="noopener">github.com/conhop30/summoner</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+/* Same Hextech gold/navy palette as the app itself (src/styles/tokens.css) —
+   this page is meant to feel like an extension of the product. */
+:root {
+  --ink: #010a13;
+  --surface: #0a1428;
+  --gold: #c8aa6e;
+  --gold-deep: #c89b3c;
+  --hex: #0bc4e3;
+  --off-white: #f0e6d2;
+  --steel: #8f9aa8;
+  --line: rgba(200, 170, 110, 0.28);
+
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --wrap: 1040px;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, rgba(11, 196, 227, 0.07) 0%, transparent 520px), var(--ink);
+  color: var(--off-white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
+
+/* ---------- nav ---------- */
+.site-nav { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.back-link {
+  text-decoration: none; color: var(--steel);
+  font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  transition: color 0.15s ease;
+}
+.back-link:hover { color: var(--gold); }
+
+/* ---------- hero ---------- */
+.hero { padding: 72px 0 40px; }
+.eyebrow { margin: 0 0 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hex); }
+.hero h1 {
+  margin: 0 0 20px;
+  font-size: clamp(44px, 9vw, 84px);
+  font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; line-height: 0.95;
+  color: var(--gold);
+}
+.hero-lede { max-width: 660px; margin: 0 0 28px; font-size: 17px; opacity: 0.88; }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+.badge {
+  padding: 5px 10px; border: 1px solid var(--line);
+  font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--off-white);
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+  border: 1px solid transparent; transition: opacity 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+.btn:active { transform: scale(0.98); }
+.btn-primary { background: var(--gold-deep); color: var(--ink); }
+.btn-primary:hover { opacity: 0.88; }
+.btn-ghost { background: transparent; border-color: var(--line); color: var(--off-white); }
+.btn-ghost:hover { border-color: var(--gold); }
+
+/* ---------- screenshots ---------- */
+.shots { padding: 24px 0 64px; }
+.shot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.shot { margin: 0; border: 1px solid var(--line); overflow: hidden; background: var(--surface); }
+.shot img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: top left; }
+.shot figcaption {
+  padding: 10px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--steel); border-top: 1px solid var(--line);
+}
+.shots-note { margin: 14px 0 0; font-size: 13px; color: var(--steel); }
+
+/* ---------- section shell ---------- */
+section.block { padding: 56px 0; border-top: 1px solid var(--line); }
+.block h2 { font-size: 26px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin: 0 0 28px; }
+
+.feature-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--line); border: 1px solid var(--line);
+}
+.feature { background: var(--surface); padding: 20px; }
+.feature h3 { margin: 0 0 8px; font-size: 15px; font-weight: 700; color: var(--off-white); }
+.feature p { margin: 0; font-size: 14px; opacity: 0.78; }
+
+.stack-grid { display: grid; gap: 12px; }
+.stack-row { display: grid; grid-template-columns: 140px 1fr; gap: 20px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--line); }
+.stack-row .label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--hex); }
+.stack-row .value { font-size: 14px; opacity: 0.88; }
+.stack-row .value strong { opacity: 1; }
+code { font-size: 0.92em; color: var(--gold); }
+
+/* ---------- download cta ---------- */
+.download-cta { text-align: center; padding: 64px 0 80px; border-top: 1px solid var(--line); }
+.download-cta h2 { font-size: 32px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin: 0 0 12px; }
+.download-cta p { opacity: 0.78; margin: 0 0 28px; }
+.download-cta .hero-actions { justify-content: center; }
+.download-cta .fine-print { margin: 20px auto 0; max-width: 680px; font-size: 13px; color: var(--steel); opacity: 1; }
+
+.site-footer { padding: 32px 0 56px; border-top: 1px solid var(--line); text-align: center; }
+.site-footer a { color: var(--steel); text-decoration: none; font-size: 13px; }
+.site-footer a:hover { color: var(--gold); }
+
+@media (max-width: 640px) {
+  .shot-grid, .feature-grid { grid-template-columns: 1fr; }
+  .stack-row { grid-template-columns: 1fr; gap: 6px; }
+}
