@@ -189,6 +189,10 @@ body {
   object-position: top left;
 }
 
+.shot-row--even {
+  grid-template-columns: 1fr 1fr;
+}
+
 .shot-tall img {
   object-position: top center;
 }
@@ -312,7 +316,8 @@ section.block {
 }
 
 @media (max-width: 720px) {
-  .shot-row {
+  .shot-row,
+  .shot-row--even {
     grid-template-columns: 1fr;
   }
   .shot-tall {
