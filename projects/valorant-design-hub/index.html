@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VALORANT Design Hub — Connor Hopkins</title>
+<meta name="description" content="A cross-platform Android/Windows/web app for designing and cataloguing custom VALORANT agents and weapons, built with React Native + Expo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/base.css">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:,">
+<meta property="og:title" content="VALORANT Design Hub">
+<meta property="og:description" content="A cross-platform app for designing and cataloguing custom VALORANT agents and weapons — Android, Windows, and web from one codebase.">
+<meta property="og:image" content="assets/shot-hub.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="../../" class="back-link">← Connor Hopkins</a>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <p class="eyebrow">Personal Project</p>
+  <h1>VALORANT Design Hub</h1>
+  <p class="hero-lede">
+    A fully offline tool for designing and cataloguing custom VALORANT agents
+    (with their abilities) and weapons — one Expo/React Native codebase
+    shipping to Android, Windows desktop, and web for real, not just running
+    inside Expo Go.
+  </p>
+  <div class="hero-badges">
+    <span class="badge">React Native + Expo</span>
+    <span class="badge">TypeScript</span>
+    <span class="badge">Electron</span>
+    <span class="badge">Zustand</span>
+    <span class="badge">EAS Build</span>
+  </div>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="https://github.com/conhop30/VALORANT-design-hub/releases/latest">Download for Android →</a>
+    <a class="btn btn-ghost" href="https://github.com/conhop30/VALORANT-design-hub" target="_blank" rel="noopener">View source on GitHub</a>
+  </div>
+</header>
+
+<section class="shots wrap">
+  <div class="shot-grid">
+    <figure class="shot"><img src="assets/shot-hub.png" alt="Agent list with search, sort, and role filters"><figcaption>Browse</figcaption></figure>
+    <figure class="shot"><img src="assets/shot-expanded.png" alt="An expanded agent card showing its four abilities"><figcaption>Abilities</figcaption></figure>
+    <figure class="shot"><img src="assets/shot-form.png" alt="The agent editor with ability podium tabs"><figcaption>Editor</figcaption></figure>
+  </div>
+</section>
+
+<section class="block wrap">
+  <h2>What it does</h2>
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>Agents &amp; weapons</h3>
+      <p>Name, role, bio, a hero image with a drag-to-reposition focal point, and four abilities (C/Q/E/X) each with their own icon, description, and cost/charges. Weapons get category, cost, fire rate, magazine size, and damage falloff.</p>
+    </div>
+    <div class="feature">
+      <h3>Search, sort, filter</h3>
+      <p>Both catalogs support live search, multiple sort orders, and role/category filtering.</p>
+    </div>
+    <div class="feature">
+      <h3>Fully offline</h3>
+      <p>No backend, no account. Everything lives on-device (SQLite natively, localStorage on web) and can be exported/imported as a single JSON file.</p>
+    </div>
+    <div class="feature">
+      <h3>Real installs, not demos</h3>
+      <p>A genuine Windows installer via Electron, and an installable Android APK via EAS Build — not just "runs in Expo Go."</p>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap">
+  <h2>How it's built</h2>
+  <div class="stack-grid">
+    <div class="stack-row">
+      <span class="label">UI</span>
+      <span class="value"><strong>React Native + react-native-web</strong> via Expo — one component tree renders natively on Android and compiles to a static web bundle, the actual mechanism behind "one codebase, three platforms."</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">Language</span>
+      <span class="value"><strong>TypeScript</strong> throughout, with shared entity types acting as the single contract between the UI, the store, and both persistence backends.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">State</span>
+      <span class="value"><strong>Zustand</strong> — a single small store holds agents, weapons, and settings in memory and mirrors writes to disk.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">Persistence</span>
+      <span class="value"><strong>expo-sqlite</strong> (native) / <strong>localStorage</strong> (web) behind one repository interface, so the store never knows which backend it's talking to.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">Desktop</span>
+      <span class="value"><strong>Electron</strong>, wrapping the same web export in a native window to produce a real <code>.exe</code>/NSIS installer.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">Mobile builds</span>
+      <span class="value"><strong>EAS Build</strong> — installable <code>.apk</code> distributed directly as a GitHub Release, no Play Store review.</span>
+    </div>
+    <div class="stack-row">
+      <span class="label">Testing</span>
+      <span class="value"><strong>Jest</strong> — unit coverage on the store, repository, persistence, and data-normalization logic, the layers most likely to silently corrupt user data.</span>
+    </div>
+  </div>
+</section>
+
+<section class="download-cta wrap">
+  <h2>Try it</h2>
+  <p>Installable on Android today. Windows and web builds run from source — see the README for the full setup.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="https://github.com/conhop30/VALORANT-design-hub/releases/latest">Download for Android →</a>
+    <a class="btn btn-ghost" href="https://github.com/conhop30/VALORANT-design-hub#readme" target="_blank" rel="noopener">Read the full write-up</a>
+  </div>
+  <p class="fine-print">Android will warn about installing from outside the Play Store — expected for a direct download, not a sign of anything wrong.</p>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="https://github.com/conhop30/VALORANT-design-hub" target="_blank" rel="noopener">github.com/conhop30/VALORANT-design-hub</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+/* Same palette/shape language as the app itself (src/theme.ts) — this
+   page is meant to feel like an extension of the product, not a generic
+   marketing wrapper around it. */
+:root {
+  --ink: #0f1923;
+  --surface: #1b2530;
+  --surface-alt: #242f3b;
+  --red: #ff4655;
+  --red-dark: #bd3944;
+  --off-white: #ece8e1;
+  --steel: #768079;
+
+  --font-display: "Bebas Neue", "Arial Narrow", sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --wrap: 1040px;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, transparent 520px), var(--ink);
+  color: var(--off-white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- nav ---------- */
+.site-nav {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(118, 128, 121, 0.3);
+}
+
+.site-nav .wrap {
+  display: flex;
+  align-items: center;
+}
+
+.back-link {
+  text-decoration: none;
+  color: var(--steel);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.15s ease;
+}
+
+.back-link:hover {
+  color: var(--off-white);
+}
+
+/* ---------- hero ---------- */
+.hero {
+  padding: 72px 0 48px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.hero h1 {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-size: clamp(48px, 9vw, 88px);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.hero-lede {
+  max-width: 640px;
+  margin: 0 0 32px;
+  font-size: 17px;
+  color: var(--off-white);
+  opacity: 0.85;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.badge {
+  padding: 5px 10px;
+  border: 1px solid var(--steel);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--off-white);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--red);
+  color: var(--ink);
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--steel);
+  color: var(--off-white);
+}
+
+.btn-ghost:hover {
+  border-color: var(--off-white);
+}
+
+/* ---------- screenshots ---------- */
+.shots {
+  padding: 24px 0 64px;
+}
+
+.shot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.shot {
+  margin: 0;
+  border: 1px solid rgba(118, 128, 121, 0.4);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.shot img {
+  width: 100%;
+  aspect-ratio: 460 / 900;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.shot figcaption {
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--steel);
+  border-top: 1px solid rgba(118, 128, 121, 0.3);
+}
+
+/* ---------- section shell ---------- */
+section.block {
+  padding: 56px 0;
+  border-top: 1px solid rgba(118, 128, 121, 0.2);
+}
+
+.block h2 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 28px;
+}
+
+/* ---------- feature list ---------- */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: rgba(118, 128, 121, 0.3);
+  border: 1px solid rgba(118, 128, 121, 0.3);
+}
+
+.feature {
+  background: var(--surface);
+  padding: 20px;
+}
+
+.feature h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.feature p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--off-white);
+  opacity: 0.75;
+}
+
+/* ---------- tech stack ---------- */
+.stack-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.stack-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 20px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid rgba(118, 128, 121, 0.3);
+}
+
+.stack-row .label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.stack-row .value {
+  font-size: 14px;
+  color: var(--off-white);
+  opacity: 0.85;
+}
+
+.stack-row .value strong {
+  color: var(--off-white);
+  opacity: 1;
+}
+
+/* ---------- download cta ---------- */
+.download-cta {
+  text-align: center;
+  padding: 64px 0 80px;
+}
+
+.download-cta h2 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.download-cta p {
+  color: var(--off-white);
+  opacity: 0.75;
+  margin: 0 0 28px;
+}
+
+.download-cta .hero-actions {
+  justify-content: center;
+}
+
+.fine-print {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--steel);
+}
+
+/* ---------- footer ---------- */
+.site-footer {
+  padding: 32px 0 56px;
+  border-top: 1px solid rgba(118, 128, 121, 0.2);
+  text-align: center;
+}
+
+.site-footer a {
+  color: var(--steel);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.site-footer a:hover {
+  color: var(--off-white);
+}
+
+@media (max-width: 640px) {
+  .shot-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .stack-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}

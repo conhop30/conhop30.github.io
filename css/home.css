@@ -1,0 +1,142 @@
+/* Deliberately neutral/minimal — the real voice and tone for this page
+   is still being decided. Grayscale on purpose: no accent color baked in
+   that would need undoing later. */
+:root {
+  --bg: #0c0d0f;
+  --surface: #17181b;
+  --text: #ece9e4;
+  --text-dim: #9a9a9d;
+  --line: rgba(236, 233, 228, 0.12);
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.home-header {
+  padding: 72px 20px 48px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.home-header h1 {
+  margin: 0;
+  font-size: clamp(32px, 6vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+main {
+  padding-bottom: 96px;
+}
+
+.projects h2 {
+  margin: 0 0 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  align-items: stretch;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.project-card:hover {
+  border-color: rgba(236, 233, 228, 0.28);
+  transform: translateY(-2px);
+}
+
+.project-card-media {
+  background: #05070a;
+  overflow: hidden;
+}
+
+.project-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+}
+
+.project-card-body {
+  padding: 20px 24px 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.project-card-body h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.project-card-body p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 15px;
+}
+
+.project-card-cta {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+footer {
+  padding: 32px 20px 56px;
+  text-align: center;
+}
+
+footer a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+footer a:hover {
+  color: var(--text);
+}
+
+@media (max-width: 560px) {
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+  .project-card-media {
+    aspect-ratio: 16 / 9;
+  }
+  .project-card-body {
+    padding: 16px 20px 20px;
+  }
+}
