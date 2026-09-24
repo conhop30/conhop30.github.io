@@ -42,7 +42,7 @@
     <span class="badge">electron-builder</span>
   </div>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="https://github.com/conhop30/daggerheart-hub/releases/download/v1.0.0/Daggerheart-Homebrew-Hub-Setup-1.0.0.exe">Download for Windows →</a>
+    <a class="btn btn-primary" href="https://github.com/conhop30/daggerheart-hub/releases/download/v1.1.0/Daggerheart-Homebrew-Hub-Setup-1.1.0.exe">Download for Windows →</a>
     <a class="btn btn-ghost" href="https://github.com/conhop30/daggerheart-hub" target="_blank" rel="noopener">View source on GitHub</a>
   </div>
 </header>
@@ -86,8 +86,8 @@
       <p>Adversaries and Environments render as a parchment stat block modeled on the printed layout, and export to a PNG in one click. Browse them as a dense gallery, a spotlight view, or full-size sheets.</p>
     </div>
     <div class="feature">
-      <h3>Run a live session</h3>
-      <p>Campaigns with a standing party, a 0–12 Fear track, adversaries pulled in as independent live copies with HP/Stress tracked as marked boxes, notes, and a loot roller that reproduces the rulebook's rarity dice mechanic.</p>
+      <h3>Run a live campaign</h3>
+      <p>Campaigns whose party, board, Fear, and notes carry from one session to the next without ever rewriting an earlier session. Adversaries are pulled in as independent live copies with HP/Stress tracked as marked boxes, and a loot roller reproduces the rulebook's rarity dice mechanic. A per-region music library loops a default track for adventuring and for combat.</p>
     </div>
     <div class="feature">
       <h3>Built to be extended</h3>
@@ -109,15 +109,15 @@
     </div>
     <div class="stack-row">
       <span class="label">Data layer</span>
-      <span class="value">A <code>makeCollection()</code> factory gives every content type idempotent-by-name create, PATCH-semantics update, and per-type validation. Where the factory doesn't fit (a session can pull the same adversary in twice), the collection is hand-written rather than forced through it.</span>
+      <span class="value">A <code>makeCollection()</code> factory gives every content type idempotent-by-name create, PATCH-semantics update, and per-type validation. Where the factory doesn't fit (a session can pull the same adversary in twice), the collection is hand-written rather than forced through it. Anything that follows a campaign is stored as per-session versions, not copies, so an edit in session 3 never touches session 2.</span>
     </div>
     <div class="stack-row">
       <span class="label">Testing</span>
-      <span class="value"><strong>79 Vitest unit tests</strong> on the store's CRUD and validation rules, and <strong>24 Playwright end-to-end tests</strong> that drive the real Electron app against throwaway data directories, so nothing ever touches a user's real data.</span>
+      <span class="value"><strong>174 Vitest unit tests</strong> on the store's CRUD, validation, and carry-forward rules, and <strong>47 Playwright end-to-end tests</strong> that drive the real Electron app against throwaway data directories, so nothing ever touches a user's real data.</span>
     </div>
     <div class="stack-row">
       <span class="label">Packaging</span>
-      <span class="value"><strong>electron-builder</strong> produces a real NSIS installer. Shipping it meant debugging a blank window in the packaged build (absolute asset paths under <code>file://</code>) and an OneDrive sync lock that broke the build inside a synced folder.</span>
+      <span class="value"><strong>electron-builder</strong> produces a real NSIS installer, and the app updates itself through <code>electron-updater</code> behind a small state machine that always asks before downloading. Shipping it meant debugging a blank window in the packaged build (absolute asset paths under <code>file://</code>) and an OneDrive sync lock that broke the build inside a synced folder.</span>
     </div>
   </div>
 </section>
@@ -126,7 +126,7 @@
   <h2>Try it</h2>
   <p>Windows installer, no account or internet needed. Your data is one JSON file on your machine.</p>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="https://github.com/conhop30/daggerheart-hub/releases/download/v1.0.0/Daggerheart-Homebrew-Hub-Setup-1.0.0.exe">Download for Windows →</a>
+    <a class="btn btn-primary" href="https://github.com/conhop30/daggerheart-hub/releases/download/v1.1.0/Daggerheart-Homebrew-Hub-Setup-1.1.0.exe">Download for Windows →</a>
     <a class="btn btn-ghost" href="https://github.com/conhop30/daggerheart-hub#readme" target="_blank" rel="noopener">Read the full write-up</a>
   </div>
   <p class="fine-print">The installer isn't code-signed, so Windows SmartScreen may warn you: choose "More info", then "Run anyway". It ships without any published book content. Unofficial fan project; Daggerheart is a trademark of Darrington Press.</p>
