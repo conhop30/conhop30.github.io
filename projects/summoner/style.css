@@ -67,6 +67,7 @@ body {
 .shots { padding: 24px 0 64px; }
 .shot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .shot { margin: 0; border: 1px solid var(--line); overflow: hidden; background: var(--surface); }
+.shot a { display: block; cursor: zoom-in; }
 .shot img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: top left; }
 .shot figcaption {
   padding: 10px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
@@ -75,7 +76,8 @@ body {
 .shots-note { margin: 14px 0 0; font-size: 13px; color: var(--steel); }
 
 /* ---------- section shell ---------- */
-section.block { padding: 56px 0; border-top: 1px solid var(--line); }
+/* Vertical padding only: the side padding comes from .wrap (a bare `padding` here used to zero it out, so these sections touched the screen edge on phones). */
+section.block { padding-top: 56px; padding-bottom: 56px; border-top: 1px solid var(--line); }
 .block h2 { font-size: 26px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin: 0 0 28px; }
 
 .feature-grid {
@@ -93,8 +95,26 @@ section.block { padding: 56px 0; border-top: 1px solid var(--line); }
 .stack-row .value strong { opacity: 1; }
 code { font-size: 0.92em; color: var(--gold); }
 
+/* ---------- roadmap ---------- */
+.road-intro { margin: -12px 0 24px; max-width: 640px; font-size: 14px; color: var(--steel); }
+.road-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.road-col { background: var(--surface); padding: 20px; }
+.road-head { margin-bottom: 14px; }
+.status {
+  display: inline-block; padding: 3px 10px; border: 1px solid var(--line);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.status-shipped { color: var(--hex); border-color: rgba(11, 196, 227, 0.45); }
+.status-next { color: var(--ink); background: var(--gold-deep); border-color: var(--gold-deep); }
+.status-exploring { color: var(--steel); }
+.road-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.road-list li { font-size: 14px; opacity: 0.85; }
+.road-list li strong { display: block; margin-bottom: 2px; font-size: 14px; color: var(--off-white); opacity: 1; }
+/* The one committed item gets a little weight. */
+.road-next .road-list li { padding-left: 12px; border-left: 2px solid var(--gold-deep); }
+
 /* ---------- download cta ---------- */
-.download-cta { text-align: center; padding: 64px 0 80px; border-top: 1px solid var(--line); }
+.download-cta { text-align: center; padding-top: 64px; padding-bottom: 80px; border-top: 1px solid var(--line); }
 .download-cta h2 { font-size: 32px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin: 0 0 12px; }
 .download-cta p { opacity: 0.78; margin: 0 0 28px; }
 .download-cta .hero-actions { justify-content: center; }
@@ -106,7 +126,11 @@ code { font-size: 0.92em; color: var(--gold); }
 .site-footer a { color: var(--steel); text-decoration: none; font-size: 13px; }
 .site-footer a:hover { color: var(--gold); }
 
+@media (max-width: 860px) {
+  .road-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 640px) {
-  .shot-grid, .feature-grid { grid-template-columns: 1fr; }
+  .shot-grid, .feature-grid, .road-grid { grid-template-columns: 1fr; }
   .stack-row { grid-template-columns: 1fr; gap: 6px; }
 }
