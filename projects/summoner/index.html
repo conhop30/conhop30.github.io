@@ -41,7 +41,8 @@
     <span class="badge">Data Dragon</span>
   </div>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="https://github.com/conhop30/summoner/releases/download/v0.2.3/Summoner-Windows-0.2.3-Setup.exe">Download for Windows →</a>
+    <a class="btn btn-primary" href="https://github.com/conhop30/summoner/releases/download/v0.2.3/Summoner-Windows-0.2.3-Setup.exe"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5.6 10.4 4.6v6.9H3V5.6Zm8.6-1.2L21 3v8.5h-9.4V4.4ZM3 12.5h7.4v6.9L3 18.4v-5.9Zm8.6 0H21V21l-9.4-1.3v-7.2Z"/></svg>Download for Windows →</a>
+    <a class="btn btn-ghost" href="https://github.com/conhop30/summoner-mobile/releases/latest/download/SummonerMobile.apk"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Android app (optional)</a>
     <a class="btn btn-ghost" href="https://github.com/conhop30/summoner" target="_blank" rel="noopener">View source on GitHub</a>
   </div>
   <p class="version-note">Latest release: v0.2.3</p>
@@ -152,6 +153,7 @@
     <div class="road-col">
       <div class="road-head"><span class="status status-shipped">Shipped</span></div>
       <ul class="road-list">
+        <li><strong>Summoner Mobile v0.1.0</strong> An optional Android companion for the concept side of a champion: story, identity, lore and abilities with their alternate forms, plus a chrome-free showcase mode. Also installable as an offline web app. Champions move to and from the desktop as JSON.</li>
         <li><strong>v0.2.3</strong> Champion themes with a mist player and volume, a roomier Story / Identity / Items editor, a permanent ability journal, game-accurate stat curves, splash framing, and a test suite.</li>
         <li><strong>v0.2.2</strong> A readable type scale, per-class stat presets, item pinning, and fullscreen navigation.</li>
         <li><strong>v0.2.1</strong> Champion deletion, click-to-toggle stat suggestions, and the brand header.</li>
@@ -171,9 +173,7 @@
       <div class="road-head"><span class="status status-exploring">Exploring</span></div>
       <ul class="road-list">
         <li><strong>Advanced ability mode</strong> Equation fields for fine-tuned stat interactions. The switch exists today; the mode itself is a placeholder.</li>
-        <li><strong>Sharper splash framing</strong> Show the showcase banner's crop too, and handle portrait artwork properly.</li>
-        <li><strong>Develop a mobile app</strong> A compact companion for the concept side of a champion: story, identity, lore and abilities, with JSON import and export to move champions between phone and desktop.</li>
-      </ul>
+        <li><strong>Sharper splash framing</strong> Show the showcase banner's crop too, and handle portrait artwork properly.</li>      </ul>
     </div>
   </div>
 </section>
@@ -182,11 +182,23 @@
   <h2>Try it</h2>
   <p>Windows 10/11 installer with built-in update checks. No account, and no internet needed except for the optional Data Dragon sync and update check.</p>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="https://github.com/conhop30/summoner/releases/download/v0.2.3/Summoner-Windows-0.2.3-Setup.exe">Download for Windows →</a>
+    <a class="btn btn-primary" href="https://github.com/conhop30/summoner/releases/download/v0.2.3/Summoner-Windows-0.2.3-Setup.exe"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5.6 10.4 4.6v6.9H3V5.6Zm8.6-1.2L21 3v8.5h-9.4V4.4ZM3 12.5h7.4v6.9L3 18.4v-5.9Zm8.6 0H21V21l-9.4-1.3v-7.2Z"/></svg>Download for Windows →</a>
     <a class="btn btn-ghost" href="https://github.com/conhop30/summoner#readme" target="_blank" rel="noopener">Read the full write-up</a>
   </div>
   <p class="version-note">Latest release: v0.2.3</p>
-  <p class="fine-print">The installer isn't code-signed, so Windows SmartScreen may warn you: choose "More info", then "Run anyway". Summoner is an unofficial fan project and isn't endorsed by Riot Games. League of Legends and its champion names and art are trademarks and property of Riot Games, Inc.</p>
+
+  <div class="mobile-option">
+    <h3><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Optional: Summoner Mobile</h3>
+    <p>A phone companion for the concept side of a champion: story, identity, lore, and abilities with their alternate forms. Numbers, items and builds stay on the desktop. Champions move between the two as JSON, and importing updates what it recognises without overwriting the other side's data. It stores everything on your phone and works offline.</p>
+    <div class="hero-actions">
+      <a class="btn btn-ghost" href="https://github.com/conhop30/summoner-mobile/releases/latest/download/SummonerMobile.apk"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Download for Android →</a>
+      <a class="btn btn-ghost" href="https://conhop30.github.io/summoner-mobile/" target="_blank" rel="noopener">Or open the web app</a>
+      <a class="btn btn-ghost" href="https://github.com/conhop30/summoner-mobile" target="_blank" rel="noopener">Source</a>
+    </div>
+    <p class="version-note">Summoner Mobile v0.1.0 · Android 6 or newer</p>
+  </div>
+
+  <p class="fine-print">The Windows installer isn't code-signed, so Windows SmartScreen may warn you: choose "More info", then "Run anyway". The Android app isn't in the Play Store, so Android will ask you to allow installing from your browser or Files app, and Play Protect may warn about an unknown developer; both are expected. Summoner is an unofficial fan project and isn't endorsed by Riot Games. League of Legends and its champion names and art are trademarks and property of Riot Games, Inc.</p>
 </section>
 
 <footer class="site-footer">

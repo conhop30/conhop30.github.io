@@ -58,6 +58,8 @@ body {
   border: 1px solid transparent; transition: opacity 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
 }
 .btn:active { transform: scale(0.98); }
+/* Platform icons on the download buttons (Windows panes, phone outline), drawn in the button's own colour. */
+.ico { width: 18px; height: 18px; flex: none; }
 .btn-primary { background: var(--gold-deep); color: var(--ink); }
 .btn-primary:hover { opacity: 0.88; }
 .btn-ghost { background: transparent; border-color: var(--line); color: var(--off-white); }
@@ -121,6 +123,13 @@ code { font-size: 0.92em; color: var(--gold); }
 /* Same look as the hero note; restated only because `.download-cta p` is more specific than `.version-note`. */
 .download-cta .version-note { margin: 12px 0 0; opacity: 0.75; }
 .download-cta .fine-print { margin: 20px auto 0; max-width: 680px; font-size: 13px; color: var(--steel); opacity: 1; }
+
+/* The optional phone download: a quieter block under the main desktop one. */
+.mobile-option { max-width: 680px; margin: 44px auto 0; padding: 24px 22px 20px; border: 1px solid var(--line); background: rgba(10, 20, 40, 0.5); }
+.mobile-option h3 { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 0 10px; font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+.mobile-option p { font-size: 14px; margin: 0 0 20px; }
+.mobile-option .hero-actions { justify-content: center; }
+.mobile-option .version-note { margin: 14px 0 0; }
 
 .site-footer { padding: 32px 0 56px; border-top: 1px solid var(--line); text-align: center; }
 .site-footer a { color: var(--steel); text-decoration: none; font-size: 13px; }
