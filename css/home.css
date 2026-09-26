@@ -163,3 +163,56 @@ footer a:hover {
 .project-card + .project-card {
   margin-top: 20px;
 }
+
+/* Future projects: plain rows, deliberately quieter than the cards above. */
+.future {
+  margin-top: 56px;
+}
+
+.future h2 {
+  margin: 0 0 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.future ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.future-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+}
+
+.future-item + .future-item {
+  margin-top: 12px;
+}
+
+.future-item h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.future-item .platforms {
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+@media (max-width: 560px) {
+  .future-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
