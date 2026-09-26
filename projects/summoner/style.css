@@ -66,15 +66,43 @@ body {
 .btn-ghost:hover { border-color: var(--gold); }
 
 /* ---------- screenshots ---------- */
-.shots { padding: 24px 0 64px; }
-.shot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.shot { margin: 0; border: 1px solid var(--line); overflow: hidden; background: var(--surface); }
-.shot a { display: block; cursor: zoom-in; }
-.shot img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: top left; }
-.shot figcaption {
+/* Vertical padding only: a bare padding shorthand here would zero .wrap's side padding. */
+.shots { padding-top: 24px; padding-bottom: 64px; }
+.showcases { display: grid; gap: 48px; }
+.showcase { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 36px; align-items: center; }
+.showcase.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr); }
+.showcase.flip .viewer { order: 2; }
+.showcase-text h3 { margin: 0 0 12px; font-size: 20px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+.showcase-text p { margin: 0; font-size: 15px; opacity: 0.88; }
+
+/* One window per category: the track scrolls sideways and snaps to each screenshot. */
+.viewer { min-width: 0; border: 1px solid var(--line); background: var(--surface); }
+.viewer-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+.viewer.js .viewer-track { scrollbar-width: none; }
+.viewer.js .viewer-track::-webkit-scrollbar { display: none; }
+.viewer-track:focus-visible { outline: 2px solid var(--hex); outline-offset: -2px; }
+.slide { flex: 0 0 100%; min-width: 0; margin: 0; scroll-snap-align: start; }
+.slide a { display: block; cursor: zoom-in; }
+.slide img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: top left; }
+.slide figcaption {
   padding: 10px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
   color: var(--steel); border-top: 1px solid var(--line);
 }
+.viewer-nav { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-top: 1px solid var(--line); }
+.viewer-arrow {
+  width: 32px; height: 32px; padding: 0; display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line); background: transparent; color: var(--off-white); font-size: 20px; line-height: 1; cursor: pointer;
+}
+.viewer-arrow:hover:not(:disabled) { border-color: var(--gold); color: var(--gold); }
+.viewer-arrow:disabled { opacity: 0.3; cursor: default; }
+.viewer-dots { display: flex; flex: 1; justify-content: center; gap: 4px; }
+/* The dot is a small mark inside a larger tap target. */
+.viewer-dot { position: relative; width: 22px; height: 22px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.viewer-dot::after { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: var(--steel); opacity: 0.45; transition: opacity 0.15s ease, background 0.15s ease; }
+.viewer-dot:hover::after { opacity: 0.8; }
+.viewer-dot.on::after { background: var(--gold); opacity: 1; }
+.viewer-count { font-size: 12px; font-variant-numeric: tabular-nums; color: var(--steel); }
+.viewer button:focus-visible { outline: 2px solid var(--hex); outline-offset: 2px; }
 .shots-note { margin: 14px 0 0; font-size: 13px; color: var(--steel); }
 
 /* ---------- section shell ---------- */
@@ -139,9 +167,12 @@ code { font-size: 0.92em; color: var(--gold); }
 
 @media (max-width: 860px) {
   .road-grid { grid-template-columns: 1fr; }
+  .showcase, .showcase.flip { grid-template-columns: 1fr; gap: 16px; }
+  .showcase-text { order: -1; }
+  .showcase.flip .viewer { order: 0; }
 }
 
 @media (max-width: 640px) {
-  .shot-grid, .feature-grid, .road-grid { grid-template-columns: 1fr; }
+  .feature-grid, .road-grid { grid-template-columns: 1fr; }
   .stack-row { grid-template-columns: 1fr; gap: 6px; }
 }
