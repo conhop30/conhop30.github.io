@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Summoner — Connor Hopkins</title>
-<meta name="description" content="A local-first Electron desktop app for designing League of Legends-style champions: game-accurate stats, modular ability kits with a built-in journal, champion theme music, item builds, and a showcase page, with an auto-updating Windows installer.">
+<meta name="description" content="A local-first Electron desktop app for designing League of Legends-style champions: game-accurate stats, modular ability kits with tooltip-style effects and a built-in journal, champion theme music, item builds, a win-rate projection, and a showcase page, with an auto-updating Windows installer.">
 <link rel="stylesheet" href="../../css/base.css">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="data:,">
@@ -50,16 +50,18 @@
 
 <section class="shots wrap">
   <div class="shot-grid">
-    <figure class="shot"><a href="assets/shot-gallery.jpg" target="_blank" rel="noopener"><img src="assets/shot-gallery.jpg" alt="The champion gallery showing eight champion tiles with completion rings and lane tags"></a><figcaption>Gallery</figcaption></figure>
-    <figure class="shot"><a href="assets/shot-view.jpg" target="_blank" rel="noopener"><img src="assets/shot-view.jpg" alt="The showcase page for Akali with an icon row and ability spotlight"></a><figcaption>Showcase page</figcaption></figure>
-    <figure class="shot"><a href="assets/shot-story.jpg" target="_blank" rel="noopener"><img src="assets/shot-story.jpg" alt="The Story panel with splash art framing, lore, and a champion theme player with a volume slider"></a><figcaption>Story panel: splash framing and theme music</figcaption></figure>
+    <figure class="shot"><a href="assets/shot-gallery.jpg" target="_blank" rel="noopener"><img src="assets/shot-gallery.jpg" alt="The champion gallery: a New champion bar above eight champion tiles with completion rings, class and lane icons"></a><figcaption>Gallery</figcaption></figure>
+    <figure class="shot"><a href="assets/shot-view.jpg" target="_blank" rel="noopener"><img src="assets/shot-view.jpg" alt="The showcase page for Akali with class and lane icons, lore, an ability icon row and the base stats"></a><figcaption>Showcase page</figcaption></figure>
+    <figure class="shot"><a href="assets/shot-tooltip.jpg" target="_blank" rel="noopener"><img src="assets/shot-tooltip.jpg" alt="Akali's Five Point Strike on the showcase page: the description reads like the game's tooltip, with magic damage in its own color and the numbers underneath"></a><figcaption>Ability text like the game's tooltip</figcaption></figure>
+    <figure class="shot"><a href="assets/shot-story.jpg" target="_blank" rel="noopener"><img src="assets/shot-story.jpg" alt="The Story panel with splash art framing, lore, and a champion theme player with a volume slider"></a><figcaption>Story: splash framing and theme music</figcaption></figure>
     <figure class="shot"><a href="assets/shot-levels.jpg" target="_blank" rel="noopener"><img src="assets/shot-levels.jpg" alt="The showcase stats panel with the Health and Attack Speed level tables expanded"></a><figcaption>Stats that level like the game's</figcaption></figure>
-    <figure class="shot"><a href="assets/shot-abilities.jpg" target="_blank" rel="noopener"><img src="assets/shot-abilities.jpg" alt="The ability editor for Gnar's Q with the ability keys, a two-row stat block, and the journal column"></a><figcaption>Ability editor with a permanent journal</figcaption></figure>
+    <figure class="shot"><a href="assets/shot-abilities.jpg" target="_blank" rel="noopener"><img src="assets/shot-abilities.jpg" alt="The ability editor for Gnar's Q with a description tooltip, effects with per-rank numbers, and the journal column"></a><figcaption>Ability editor, effects and a permanent journal</figcaption></figure>
     <figure class="shot"><a href="assets/shot-blocks.jpg" target="_blank" rel="noopener"><img src="assets/shot-blocks.jpg" alt="An alternate-form ability block for Boulder Toss under Gnar's Q"></a><figcaption>Modular ability blocks</figcaption></figure>
+    <figure class="shot"><a href="assets/shot-winrate.jpg" target="_blank" rel="noopener"><img src="assets/shot-winrate.jpg" alt="The win-rate bar showing 47.3% with its details open: what drives the number and how each ability is counted at level 13"></a><figcaption>Win-rate projection</figcaption></figure>
     <figure class="shot"><a href="assets/shot-stats.jpg" target="_blank" rel="noopener"><img src="assets/shot-stats.jpg" alt="The suggested-stats pop-up offering class averages"></a><figcaption>Suggested stats from Data Dragon</figcaption></figure>
     <figure class="shot"><a href="assets/shot-items.jpg" target="_blank" rel="noopener"><img src="assets/shot-items.jpg" alt="The item build panel with six items and the details of Trinity Force"></a><figcaption>Build theorycrafting</figcaption></figure>
   </div>
-  <p class="shots-note">Screenshots show sample champions (Aatrox, Gnar, Akali and a few more) loaded from Riot's public Data Dragon feed. The journal notes and the silent theme track are made up for the demo. Click a screenshot to open it full size.</p>
+  <p class="shots-note">Screenshots show sample champions (Aatrox, Gnar, Akali and a few more) loaded from Riot's public Data Dragon feed. The ability numbers, journal notes and the silent theme track are made up for the demo. Click a screenshot to open it full size.</p>
 </section>
 
 <section class="block wrap">
@@ -67,15 +69,11 @@
   <div class="feature-grid">
     <div class="feature">
       <h3>Identity, lore &amp; splash art</h3>
-      <p>Name, title, lore, classes, lane, resource type and playstyle. Splash art has a drag-to-reposition focal point, and a gold frame shows exactly what the gallery tile will keep.</p>
+      <p>Name, title, lore, classes, lane, resource type and playstyle. Splash art has a drag-to-reposition focal point, and a gold frame shows exactly what the gallery tile will keep. Class and lane icons from the game mark each tile.</p>
     </div>
     <div class="feature">
-      <h3>Modular ability kits</h3>
-      <p>Passive plus Q/W/E/R, each with cooldown, cost, and effects that scale per rank, plus custom icons. Any key can take "+" blocks: extra passives, alternate forms like Gnar's Mega spells, or condition-unlocked recasts like Akali's.</p>
-    </div>
-    <div class="feature">
-      <h3>Ability journal</h3>
-      <p>A notes column beside every ability for scrapped mechanics and rough ideas, with tabs per ability. In a narrow window it collapses into a compact strip above the form.</p>
+      <h3>Modular kits &amp; a journal</h3>
+      <p>Passive plus Q/W/E/R, each with cooldown, cost, and effects that scale per rank, plus custom icons. Any key can take "+" blocks: extra passives, alternate forms like Gnar's Mega spells, or recasts like Akali's. A permanent journal beside every ability keeps scrapped mechanics and rough ideas.</p>
     </div>
     <div class="feature">
       <h3>Champion themes</h3>
@@ -83,7 +81,7 @@
     </div>
     <div class="feature">
       <h3>Stats that behave like the game</h3>
-      <p>Whole-number and decimal stats are kept apart, attack speed grows as a percentage of its base, and level tables follow the game's own growth curve rather than a straight line.</p>
+      <p>Whole-number and decimal stats are kept apart, attack speed grows as a percentage of its base, and level tables follow the game's own growth curve rather than a straight line. One set of stat icons is used everywhere.</p>
     </div>
     <div class="feature">
       <h3>Live Data Dragon sync</h3>
@@ -91,7 +89,7 @@
     </div>
     <div class="feature">
       <h3>Build theorycrafting</h3>
-      <p>Up to four named item builds per champion, with stacking rules read from the data, pinnable item details, and a real-time stat comparison against the champion's base stats.</p>
+      <p>Up to four named item builds per champion, with stacking rules read from the data, pinnable item details, and a real-time stat comparison against the champion's base stats. Lethality and penetration on items are read and priced.</p>
     </div>
     <div class="feature">
       <h3>Showcase &amp; poster</h3>
@@ -99,19 +97,23 @@
     </div>
     <div class="feature">
       <h3>Win-rate projection</h3>
-      <p>A slim bar above the editor projects a win rate as you tune: one number with a plus-or-minus band, what is driving it, and what would sharpen it. Stats are scored against real champions of the same class; the ability weights are hand-tuned, and it says so.</p>
+      <p>A slim bar above the editor projects a win rate as you tune: one number with a plus-or-minus band, what is driving it, and what would sharpen it. Stats are scored against real champions of the same class; the ability weights are hand-tuned, and it says so. It prices shred, penetration, stat buffs, taunts and roots too.</p>
     </div>
     <div class="feature">
-      <h3>Effects with real scaling</h3>
-      <p>Any effect, built in or your own ("taunt"), scaled from a stat picker with base, bonus and total, per-N scalers like +1% per 80 bonus armor, the target's health, and custom values such as stacks. Each effect reads as one tooltip line.</p>
+      <h3>Effects by what they do</h3>
+      <p>Add an effect by kind (damage, buff, debuff, state or your own), then which one: physical, magic or true damage, healing, shielding, armor shred, slow, taunt and more. Then the numbers per rank, scaled from a stat picker with base, bonus and total, per-N scalers like +1% per 80 bonus armor, the target's health, or values such as stacks. Raise or lower a stat for a duration.</p>
     </div>
     <div class="feature">
-      <h3>Numbers that follow the text</h3>
-      <p>Write {Damage} in a description and the numbers fill in from that effect, so the sentence can't drift from the kit. Rename or remove an effect and the tokens move with it; the showcase and poster show the finished text.</p>
+      <h3>Text like the game's tooltip</h3>
+      <p>Write {Damage} in a description and it reads as "magic damage" in its own color with a small icon, with the numbers and scalings in rows underneath. Rename or remove an effect and the tokens move with it, so the sentence can't drift from the kit. The showcase and poster show the finished text.</p>
+    </div>
+    <div class="feature">
+      <h3>Numbers are optional</h3>
+      <p>The first launch asks whether you want the story and abilities only, or the full picture. Settings has a switch each for ability numbers, stats and items, and the win-rate projection. Hiding is never deleting, so nobody is locked out of the other side.</p>
     </div>
     <div class="feature">
       <h3>Local, tested, self-updating</h3>
-      <p>One SQLite file on your machine, with JSON export and import. The installer checks GitHub Releases for updates, and every release runs a test suite first.</p>
+      <p>One SQLite file on your machine, with JSON export and import. The installer (about 75 MB) checks GitHub Releases for updates, and every release runs a test suite first.</p>
     </div>
   </div>
 </section>
