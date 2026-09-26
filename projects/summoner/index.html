@@ -41,11 +41,11 @@
     <span class="badge">Data Dragon</span>
   </div>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="https://github.com/conhop30/summoner/releases/download/v0.2.3/Summoner-Windows-0.2.3-Setup.exe"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5.6 10.4 4.6v6.9H3V5.6Zm8.6-1.2L21 3v8.5h-9.4V4.4ZM3 12.5h7.4v6.9L3 18.4v-5.9Zm8.6 0H21V21l-9.4-1.3v-7.2Z"/></svg>Download for Windows →</a>
+    <a class="btn btn-primary" href="https://github.com/conhop30/summoner/releases/download/v0.3.0/Summoner-Windows-0.3.0-Setup.exe"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5.6 10.4 4.6v6.9H3V5.6Zm8.6-1.2L21 3v8.5h-9.4V4.4ZM3 12.5h7.4v6.9L3 18.4v-5.9Zm8.6 0H21V21l-9.4-1.3v-7.2Z"/></svg>Download for Windows →</a>
     <a class="btn btn-ghost" href="https://github.com/conhop30/summoner-mobile/releases/latest/download/SummonerMobile.apk"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Android app</a>
     <a class="btn btn-ghost" href="https://github.com/conhop30/summoner" target="_blank" rel="noopener">View source on GitHub</a>
   </div>
-  <p class="version-note">Latest release: v0.2.3</p>
+  <p class="version-note">Latest release: v0.3.0</p>
 </header>
 
 <section class="shots wrap">
@@ -71,7 +71,7 @@
     </div>
     <div class="feature">
       <h3>Modular ability kits</h3>
-      <p>Passive plus Q/W/E/R, each with cooldown, cost, and effects that scale per rank (including AP/AD ratios), plus custom icons. Any key can take "+" blocks: extra passives, alternate forms like Gnar's Mega spells, or condition-unlocked recasts like Akali's.</p>
+      <p>Passive plus Q/W/E/R, each with cooldown, cost, and effects that scale per rank, plus custom icons. Any key can take "+" blocks: extra passives, alternate forms like Gnar's Mega spells, or condition-unlocked recasts like Akali's.</p>
     </div>
     <div class="feature">
       <h3>Ability journal</h3>
@@ -96,6 +96,18 @@
     <div class="feature">
       <h3>Showcase &amp; poster</h3>
       <p>A splash-art-forward view page with an icon-row and spotlight ability display and expandable stat tables, plus a one-click downloadable poster of the whole kit.</p>
+    </div>
+    <div class="feature">
+      <h3>Win-rate projection</h3>
+      <p>A slim bar above the editor projects a win rate as you tune: one number with a plus-or-minus band, what is driving it, and what would sharpen it. Stats are scored against real champions of the same class; the ability weights are hand-tuned, and it says so.</p>
+    </div>
+    <div class="feature">
+      <h3>Effects with real scaling</h3>
+      <p>Any effect, built in or your own ("taunt"), scaled from a stat picker with base, bonus and total, per-N scalers like +1% per 80 bonus armor, the target's health, and custom values such as stacks. Each effect reads as one tooltip line.</p>
+    </div>
+    <div class="feature">
+      <h3>Numbers that follow the text</h3>
+      <p>Write {Damage} in a description and the numbers fill in from that effect, so the sentence can't drift from the kit. Rename or remove an effect and the tokens move with it; the showcase and poster show the finished text.</p>
     </div>
     <div class="feature">
       <h3>Local, tested, self-updating</h3>
@@ -153,6 +165,7 @@
     <div class="road-col">
       <div class="road-head"><span class="status status-shipped">Shipped</span></div>
       <ul class="road-list">
+        <li><strong>v0.3.0</strong> A win-rate projection beside every champion, a far more capable effects editor (custom effects, a stat picker with base / bonus / total, per-N scalers, custom values), numbers that fill into ability descriptions, a launch loading screen, and a New champion bar above the gallery.</li>
         <li><strong>Summoner Mobile v0.1.0</strong> An Android companion for the concept side of a champion: story, identity, lore and abilities with their alternate forms, plus a chrome-free showcase mode. Also installable as an offline web app. Champions move to and from the desktop as JSON.</li>
         <li><strong>v0.2.3</strong> Champion themes with a mist player and volume, a roomier Story / Identity / Items editor, a permanent ability journal, game-accurate stat curves, splash framing, and a test suite.</li>
         <li><strong>v0.2.2</strong> A readable type scale, per-class stat presets, item pinning, and fullscreen navigation.</li>
@@ -164,15 +177,14 @@
       <div class="road-head"><span class="status status-next">Next</span></div>
       <ul class="road-list">
         <li>
-          <strong>Win-rate projector</strong>
-          An always-visible panel that projects a win rate from a champion's stats, so tuning a number shows its effect straight away. The editor layout already reserves room for it. How to model it is still being designed.
+          <strong>Advanced ability mode</strong>
+          Formula fields for fine-tuned stat interactions, to be shaped by how people actually use the new effects editor. The switch exists today; the mode itself is a placeholder.
         </li>
       </ul>
     </div>
     <div class="road-col">
       <div class="road-head"><span class="status status-exploring">Exploring</span></div>
       <ul class="road-list">
-        <li><strong>Advanced ability mode</strong> Equation fields for fine-tuned stat interactions. The switch exists today; the mode itself is a placeholder.</li>
         <li><strong>Sharper splash framing</strong> Show the showcase banner's crop too, and handle portrait artwork properly.</li>      </ul>
     </div>
   </div>
@@ -182,10 +194,10 @@
   <h2>Try it</h2>
   <p>Windows 10/11 installer with built-in update checks. No account, and no internet needed except for the optional Data Dragon sync and update check.</p>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="https://github.com/conhop30/summoner/releases/download/v0.2.3/Summoner-Windows-0.2.3-Setup.exe"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5.6 10.4 4.6v6.9H3V5.6Zm8.6-1.2L21 3v8.5h-9.4V4.4ZM3 12.5h7.4v6.9L3 18.4v-5.9Zm8.6 0H21V21l-9.4-1.3v-7.2Z"/></svg>Download for Windows →</a>
+    <a class="btn btn-primary" href="https://github.com/conhop30/summoner/releases/download/v0.3.0/Summoner-Windows-0.3.0-Setup.exe"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5.6 10.4 4.6v6.9H3V5.6Zm8.6-1.2L21 3v8.5h-9.4V4.4ZM3 12.5h7.4v6.9L3 18.4v-5.9Zm8.6 0H21V21l-9.4-1.3v-7.2Z"/></svg>Download for Windows →</a>
     <a class="btn btn-ghost" href="https://github.com/conhop30/summoner#readme" target="_blank" rel="noopener">Read the full write-up</a>
   </div>
-  <p class="version-note">Latest release: v0.2.3</p>
+  <p class="version-note">Latest release: v0.3.0</p>
 
   <div class="mobile-option">
     <h3><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Summoner Mobile</h3>
