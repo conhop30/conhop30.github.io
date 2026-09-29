@@ -105,6 +105,20 @@ body {
   gap: 12px;
 }
 
+.version-note {
+  margin: 12px 0 0;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  opacity: 0.75;
+}
+
+/* Same look as the hero note; restated only because `.download-cta p` is more specific than `.version-note`. */
+.download-cta .version-note {
+  margin: 12px 0 0;
+  opacity: 0.75;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
