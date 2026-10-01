@@ -156,59 +156,93 @@ body {
   border-color: var(--off-white);
 }
 
-/* ---------- screenshots ---------- */
-.shots {
-  padding: 24px 0 64px;
-  display: grid;
-  gap: 16px;
+/* ---------- screenshot galleries ---------- */
+/* One section per area of the app (Classes/Domains, Adversaries, the live
+   Session, Music), each a short overview paragraph above a horizontally
+   scrolling strip of screenshots — a row can hold as many shots as a
+   feature needs without the page growing tall, and the strip's own
+   right-edge fade is the only hint it needs to say "there's more". */
+.gallery {
+  padding: 24px 0 0;
 }
 
-.shot {
+.gallery-section {
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+}
+
+.gallery-section:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.gallery-section__intro {
+  max-width: 720px;
+  margin-bottom: 20px;
+}
+
+.gallery-section__intro h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.gallery-section__intro p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.82;
+}
+
+.gallery-strip {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x proximity;
+  -webkit-mask-image: linear-gradient(to right, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, black 94%, transparent 100%);
+}
+
+.gallery-strip::-webkit-scrollbar {
+  height: 6px;
+}
+
+.gallery-strip::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.gallery-strip::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 3px;
+}
+
+.gallery-shot {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: clamp(260px, 34vw, 420px);
   margin: 0;
   border: 1px solid var(--line);
-  overflow: hidden;
   background: var(--surface);
+  overflow: hidden;
 }
 
-.shot img {
+.gallery-shot--wide {
+  width: clamp(320px, 46vw, 560px);
+}
+
+.gallery-shot img {
   width: 100%;
   display: block;
 }
 
-.shot figcaption {
+.gallery-shot figcaption {
   padding: 10px 14px;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--muted);
   border-top: 1px solid var(--line);
-}
-
-.shot-row {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 16px;
-}
-
-.shot-row .shot {
-  display: flex;
-  flex-direction: column;
-}
-
-.shot-row .shot img {
-  flex: 1;
-  min-height: 0;
-  object-fit: cover;
-  object-position: top left;
-}
-
-.shot-row--even {
-  grid-template-columns: 1fr 1fr;
-}
-
-.shot-tall img {
-  object-position: top center;
 }
 
 /* ---------- section shell ---------- */
@@ -365,13 +399,9 @@ section.block {
 }
 
 @media (max-width: 720px) {
-  .shot-row,
-  .shot-row--even {
-    grid-template-columns: 1fr;
-  }
-  .shot-tall {
-    max-width: 380px;
-    margin: 0 auto;
+  .gallery-shot,
+  .gallery-shot--wide {
+    width: 82vw;
   }
   .stack-row {
     grid-template-columns: 1fr;
