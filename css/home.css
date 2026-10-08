@@ -160,8 +160,38 @@ footer a:hover {
   }
 }
 
-.project-card + .project-card {
+.project-card + .project-card,
+.project-card + .project-row,
+.project-row + .project-card {
   margin-top: 20px;
+}
+
+/* A project's own app icon, standing in the margin to the left of its
+   card. Decorative, so it only appears where the margin has room for it. */
+.project-row {
+  position: relative;
+}
+
+.project-logo {
+  display: none;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  width: 72px;
+  height: 72px;
+  margin-right: 24px;
+  transform: translateY(-50%);
+  transition: transform 0.15s ease;
+}
+
+.project-row:hover .project-logo {
+  transform: translateY(-50%) rotate(-6deg) scale(1.06);
+}
+
+@media (min-width: 1100px) {
+  .project-logo {
+    display: block;
+  }
 }
 
 /* Future projects: plain rows, deliberately quieter than the cards above. */
