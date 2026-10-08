@@ -156,94 +156,49 @@ body {
   border-color: var(--off-white);
 }
 
-/* ---------- screenshot galleries ---------- */
-/* One section per area of the app (Classes/Domains, Adversaries, the live
-   Session, Music), each a short overview paragraph above a horizontally
-   scrolling strip of screenshots — a row can hold as many shots as a
-   feature needs without the page growing tall, and the strip's own
-   right-edge fade is the only hint it needs to say "there's more". */
-.gallery {
-  padding: 24px 0 0;
-}
+/* ---------- screenshots ---------- */
+/* One window per area of the app, each beside a short description. A
+   window holds as many screenshots as its area needs and scrolls sideways
+   through them, so a feature-rich app gets a high screenshot count without
+   the page growing tall. Same pattern as the Summoner page. */
+/* Vertical padding only: a bare padding shorthand here would zero .wrap's side padding. */
+.shots { padding-top: 24px; padding-bottom: 64px; }
+.showcases { display: grid; gap: 48px; }
+.showcase { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 36px; align-items: center; }
+.showcase.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr); }
+.showcase.flip .viewer { order: 2; }
+.showcase-text h3 { margin: 0 0 12px; font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--hope); }
+.showcase-text p { margin: 0; font-size: 14px; opacity: 0.86; }
 
-.gallery-section {
-  padding: 40px 0;
-  border-top: 1px solid var(--line);
+/* The track scrolls sideways and snaps to each screenshot. */
+.viewer { min-width: 0; border: 1px solid var(--line); background: var(--surface); }
+.viewer-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+.viewer.js .viewer-track { scrollbar-width: none; }
+.viewer.js .viewer-track::-webkit-scrollbar { display: none; }
+.viewer-track:focus-visible { outline: 2px solid var(--fear); outline-offset: -2px; }
+.slide { flex: 0 0 100%; min-width: 0; margin: 0; scroll-snap-align: start; }
+.slide a { display: block; cursor: zoom-in; }
+.slide img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: top left; }
+.slide figcaption {
+  padding: 10px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+  color: var(--muted); border-top: 1px solid var(--line);
 }
-
-.gallery-section:first-child {
-  border-top: none;
-  padding-top: 0;
+.viewer-nav { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-top: 1px solid var(--line); }
+.viewer-arrow {
+  width: 32px; height: 32px; padding: 0; display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line); background: transparent; color: var(--off-white); font-size: 20px; line-height: 1; cursor: pointer;
 }
-
-.gallery-section__intro {
-  max-width: 720px;
-  margin-bottom: 20px;
-}
-
-.gallery-section__intro h2 {
-  font-family: var(--font-display);
-  font-size: 26px;
-  font-weight: 700;
-  margin: 0 0 10px;
-}
-
-.gallery-section__intro p {
-  margin: 0;
-  font-size: 14px;
-  opacity: 0.82;
-}
-
-.gallery-strip {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  scroll-snap-type: x proximity;
-  -webkit-mask-image: linear-gradient(to right, black 94%, transparent 100%);
-  mask-image: linear-gradient(to right, black 94%, transparent 100%);
-}
-
-.gallery-strip::-webkit-scrollbar {
-  height: 6px;
-}
-
-.gallery-strip::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.gallery-strip::-webkit-scrollbar-thumb {
-  background: var(--line);
-  border-radius: 3px;
-}
-
-.gallery-shot {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  width: clamp(260px, 34vw, 420px);
-  margin: 0;
-  border: 1px solid var(--line);
-  background: var(--surface);
-  overflow: hidden;
-}
-
-.gallery-shot--wide {
-  width: clamp(320px, 46vw, 560px);
-}
-
-.gallery-shot img {
-  width: 100%;
-  display: block;
-}
-
-.gallery-shot figcaption {
-  padding: 10px 14px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--muted);
-  border-top: 1px solid var(--line);
-}
+.viewer-arrow:hover:not(:disabled) { border-color: var(--hope); color: var(--hope); }
+.viewer-arrow:disabled { opacity: 0.3; cursor: default; }
+.viewer-dots { display: flex; flex: 1; justify-content: center; gap: 4px; }
+/* The dot is a small mark inside a larger tap target. */
+.viewer-dot { position: relative; width: 22px; height: 22px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.viewer-dot::after { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: var(--muted); opacity: 0.45; transition: opacity 0.15s ease, background 0.15s ease; }
+.viewer-dot:hover::after { opacity: 0.8; }
+.viewer-dot.on::after { background: var(--hope); opacity: 1; }
+.viewer-count { font-size: 12px; font-variant-numeric: tabular-nums; color: var(--muted); }
+.viewer button:focus-visible { outline: 2px solid var(--fear); outline-offset: 2px; }
+.shots-note { margin: 14px 0 0; font-size: 13px; color: var(--muted); }
 
 /* ---------- section shell ---------- */
 section.block {
@@ -398,11 +353,13 @@ section.block {
   color: var(--off-white);
 }
 
+@media (max-width: 860px) {
+  .showcase, .showcase.flip { grid-template-columns: 1fr; gap: 16px; }
+  .showcase-text { order: -1; }
+  .showcase.flip .viewer { order: 0; }
+}
+
 @media (max-width: 720px) {
-  .gallery-shot,
-  .gallery-shot--wide {
-    width: 82vw;
-  }
   .stack-row {
     grid-template-columns: 1fr;
     gap: 6px;
